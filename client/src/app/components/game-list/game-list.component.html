@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let game of games">
+        <div class="card ">
+            <div class="card-header bg-dark text-white d-flex justify-content-between">
+                <h3>{{game.title}}</h3>
+                <button class="btn btn-danger" (click)="removeGame(game.id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </div>
+           
+            <div class="card-body text-center">
+                
+                <img src="http://localhost:4000{{game.image}}" alt="" class="card-img-top" height="200">
+                <p>{{game.description}}</p>
+                <p>{{game.created_at | date:'yyyy-MM-dd'}}</p>
+
+                <p>
+                    <a [routerLink]="['/game/edit', game.id]" class="btn btn-dark btn-block">update</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
